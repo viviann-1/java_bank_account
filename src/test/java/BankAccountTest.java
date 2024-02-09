@@ -10,59 +10,77 @@ public class BankAccountTest {
     private BankAccount bankAccount;
 
     @BeforeEach
-
     public void setUp(){
-
         bankAccount = new BankAccount("Bob", "Smith", "01/02/1940", 1234, 200);
     }
 
     @Test
-
     public void canReturnFirstName(){
-        String result =bankAccount.getFirstName();
-        assertThat(result).isEqualTo("Bob");
-
+        assertThat(bankAccount.getFirstName()).isEqualTo("Bob");
     }
 
     @Test
+    public void canSetFirstName(){
+        bankAccount.setFirstName("John");
+        assertThat(bankAccount.getFirstName()).isEqualTo("John");
+    }
 
+    @Test
     public void canReturnLastName(){
-        String result =bankAccount.getLastName();
-        assertThat(result).isEqualTo("Smith");
+        assertThat(bankAccount.getLastName()).isEqualTo("Smith");
     }
 
+    @Test
+    public void canSetLastName(){
+        bankAccount.setLastName("Woods");
+        assertThat(bankAccount.getLastName()).isEqualTo("Woods");
+    }
+
+    @Test
     public void canReturnDateOfBirth(){
-        String result =bankAccount.getDateOfBirth();
-        assertThat(result).isEqualTo("01/02/1940");
-
+        assertThat(bankAccount.getDateOfBirth()).isEqualTo("01/02/1940");
     }
 
     @Test
+    public void canSetDateOfBirth(){
+        bankAccount.setDateOfBirth("10/05/1930");
+        assertThat(bankAccount.getDateOfBirth()).isEqualTo("10/05/1930");
+    }
 
+    @Test
     public void canReturnAccountNumber(){
-        int result =bankAccount.getAccountNumber();
-        assertThat(result).isEqualTo(1234);
-
+        assertThat(bankAccount.getAccountNumber()).isEqualTo(1234);
     }
 
-
     @Test
-
+    public void canSetAccountNumber(){
+        bankAccount.setAccountNumber(4567);
+        assertThat(bankAccount.getAccountNumber()).isEqualTo(4567);
+    }
+    @Test
     public void canReturnBalance(){
-        int result=bankAccount.getBalance();
-        assertThat(result).isEqualTo(200);
+        assertThat(bankAccount.getBalance()).isEqualTo(200);
     }
-
     @Test
-
-    public void canReturnDeposit(){
-        int result=bankAccount.deposit();
-        assertThat(result).isEqualTo(200 +=);
-
+    public void canSetBalance(){
+        bankAccount.setBalance(500);
+        assertThat(bankAccount.getBalance()).isEqualTo(500);
     }
-
-
-
+    @Test
+    public void canReturnDeposit(){
+        bankAccount.deposit(30);
+        assertThat(bankAccount.getBalance()).isEqualTo(230);
+    }
+    @Test
+    public void canWithdraw(){
+        bankAccount.withdraw(30);
+        assertThat(bankAccount.getBalance()).isEqualTo(170);
+    }
+    @Test
+    public void canPayInterest(){
+        bankAccount.payInterest(10.0);
+        assertThat(bankAccount.getBalance()).isEqualTo(2200);
+    }
 
     }
 

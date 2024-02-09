@@ -23,7 +23,7 @@ public class BankAccount {
 
 
     public String getFirstName() {
-        return firstName;
+        return this.firstName;
     }
 
     public void setFirstName(String firstName) {
@@ -31,7 +31,7 @@ public class BankAccount {
     }
 
     public String getLastName() {
-        return lastName;
+        return this.lastName;
     }
 
     public void setLastName(String lastName) {
@@ -39,7 +39,7 @@ public class BankAccount {
     }
 
     public String getDateOfBirth() {
-        return dateOfBirth;
+        return this.dateOfBirth;
     }
 
     public void setDateOfBirth(String dateOfBirth) {
@@ -47,7 +47,7 @@ public class BankAccount {
     }
 
     public int getAccountNumber() {
-        return accountNumber;
+        return this.accountNumber;
     }
 
     public void setAccountNumber(int accountNumber) {
@@ -55,7 +55,7 @@ public class BankAccount {
     }
 
     public int getBalance() {
-        return balance;
+        return this.balance;
     }
 
     public void setBalance(int balance) {
@@ -68,29 +68,28 @@ public class BankAccount {
 // Deposit Method
 
     public void deposit(int amount){
-
-        balance += amount;
+        this.balance += amount;
     }
-
 
     // Withdrawal Method
 
     public void withdraw(int amount){
-
-        if (balance >= amount){
-            balance -=amount;
+            this.balance -=amount;
         }
 
         // Pay Interest Method
 
-    public void payInterest(int interestRate){
-         balance += (balance * interestRate);
+    public void payInterest(double interestRate){
+            double interestToPay = this.balance * interestRate;
+            this.balance += interestToPay;
+
+
 
         }
 
     }
 
-}
+
 
 
 
